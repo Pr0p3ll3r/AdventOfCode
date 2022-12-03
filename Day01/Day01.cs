@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode._01
+namespace AdventOfCode.Day01
 {
-    class _01
+    class Day01
     {
         static void Main(string[] args)
         {           
-            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\01\\01.txt");
+            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\Day01\\Day01.txt");
             List<int> calories = new List<int>();
             int cal = 0;
             foreach (var line in lines)

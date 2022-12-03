@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode._02
+namespace AdventOfCode.Day02
 {
-    class _02
+    class Day02
     {
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\02\\02.txt");
+            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\Day02\\Day02.txt");
             int score1 = 0;
             foreach (var line in lines)
             {
