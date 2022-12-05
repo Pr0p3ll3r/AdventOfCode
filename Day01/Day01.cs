@@ -10,7 +10,7 @@ namespace AdventOfCode.Day01
     {
         static void Main(string[] args)
         {           
-            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\Day01\\Day01.txt");
+            string[] lines = File.ReadAllLines("../../../Day01/Day01.txt");
             List<int> calories = new List<int>();
             int cal = 0;
             foreach (var line in lines)

@@ -63,7 +63,7 @@ namespace AdventOfCode.Day03
 
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\Day03\\Day03.txt");
+            string[] lines = File.ReadAllLines("../../../Day03/Day03.txt");
             List<char> sharedItems = new List<char>();
             foreach (var line in lines)
             {

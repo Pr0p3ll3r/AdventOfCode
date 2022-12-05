@@ -79,7 +79,7 @@ namespace AdventOfCode.Day04
 
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\Day04\\Day04.txt");
+            string[] lines = File.ReadAllLines("../../../Day04/Day04.txt");
             int part1 = 0;
             int part2 = 0;
             foreach (var line in lines)

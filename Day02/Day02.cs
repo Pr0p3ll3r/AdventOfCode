@@ -10,7 +10,7 @@ namespace AdventOfCode.Day02
     {
         static void Main(string[] args)
         {
-            string[] lines = File.ReadAllLines("F:\\AdventOfCode\\Day02\\Day02.txt");
+            string[] lines = File.ReadAllLines("../../../Day02/Day02.txt");
             int score1 = 0;
             foreach (var line in lines)
             {
