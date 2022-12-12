@@ -8,60 +8,60 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode.Day07
 {
-    class Day07
+    class Directory
     {
-        private class Directory
+        public string name = "";
+        public int size = 0;
+        public Directory outerDirectory;
+        public List<Directory> subDirectories;
+        public Directory()
         {
-            public string name = "";
-            public int size = 0;
-            public Directory outerDirectory;
-            public List<Directory> subDirectories;
-            public Directory()
+        }
+        public Directory(string name, int size, Directory outerDirectory, List<Directory> subDirectories)
+        {
+            this.name = name;
+            this.size = size;
+            this.outerDirectory = outerDirectory;
+            this.subDirectories = subDirectories;
+        }
+        public void Show()
+        {
+            Console.WriteLine($"Name: {name} Size: {size}");
+            foreach (var item in subDirectories)
             {
-            }
-            public Directory(string name, int size, Directory outerDirectory, List<Directory> subDirectories)
-            {
-                this.name = name;
-                this.size = size;
-                this.outerDirectory = outerDirectory;
-                this.subDirectories = subDirectories;
-            }
-            public void Show()
-            {
-                Console.WriteLine($"Name: {name} Size: {size}");
-                foreach (var item in subDirectories)
-                {
-                    item.Show();
-                }
-            }
-            public void Sum()
-            {
-                foreach (var item in subDirectories)
-                {
-                    item.Sum();
-                    size += item.size;
-                }
-            }
-            public void SolvePart1(ref int result)
-            {
-                if (size <= 100000)
-                    result += size;
-                foreach (var item in subDirectories)
-                {      
-                    item.SolvePart1(ref result);
-                }
-            }
-            public void SolvePart2(int neededUnusedSpace, ref Directory directoryToDelete)
-            {
-                if (size >= neededUnusedSpace && size < directoryToDelete.size)
-                    directoryToDelete = this;
-                foreach (var item in subDirectories)
-                {
-                    item.SolvePart2(neededUnusedSpace, ref directoryToDelete);
-                }
+                item.Show();
             }
         }
+        public void Sum()
+        {
+            foreach (var item in subDirectories)
+            {
+                item.Sum();
+                size += item.size;
+            }
+        }
+        public void SolvePart1(ref int result)
+        {
+            if (size <= 100000)
+                result += size;
+            foreach (var item in subDirectories)
+            {
+                item.SolvePart1(ref result);
+            }
+        }
+        public void SolvePart2(int neededUnusedSpace, ref Directory directoryToDelete)
+        {
+            if (size >= neededUnusedSpace && size < directoryToDelete.size)
+                directoryToDelete = this;
+            foreach (var item in subDirectories)
+            {
+                item.SolvePart2(neededUnusedSpace, ref directoryToDelete);
+            }
+        }
+    }
 
+    class Day07
+    {
         static void Main(string[] args)
         {
             string[] lines = File.ReadAllLines("../../../Day07/Day07.txt");
