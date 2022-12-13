@@ -66,6 +66,7 @@ namespace AdventOfCode.Day07
         {
             string[] lines = File.ReadAllLines("../../../Day07/Day07.txt");
             Directory currentDirectory = new Directory();
+            Directory root = new Directory();
             foreach (var line in lines)
             {
                 string[] split = line.Split(' ');
@@ -76,7 +77,7 @@ namespace AdventOfCode.Day07
                         if (split[2] == "..") //go to outer directory
                             currentDirectory = currentDirectory.outerDirectory;
                         else if (split[2] == "/") //the outermost directory
-                            currentDirectory = new Directory("/", 0, new Directory(), new List<Directory>());
+                            currentDirectory = root = new Directory("/", 0, new Directory(), new List<Directory>());
                         else //go to directory "split[2]"
                         {
                             currentDirectory = currentDirectory.subDirectories.Find(x => x.name == split[2]);
@@ -92,18 +93,14 @@ namespace AdventOfCode.Day07
                     currentDirectory.size += int.Parse(split[0]);
                 }
             }
-            while(currentDirectory.outerDirectory.name != "") //go to the outermost directory
-            {
-                currentDirectory = currentDirectory.outerDirectory;
-            }
-            currentDirectory.Sum();
-            currentDirectory.Show();
+            root.Sum();
+            root.Show();
             int result = 0;
-            currentDirectory.SolvePart1(ref result);
+            root.SolvePart1(ref result);
             Console.WriteLine(result);
-            int neededUnusedSpace = 30000000 - (70000000 - currentDirectory.size);
+            int neededUnusedSpace = 30000000 - (70000000 - root.size);
             Directory directoryToDelete = new Directory("", int.MaxValue, new Directory(), new List<Directory>());
-            currentDirectory.SolvePart2(neededUnusedSpace, ref directoryToDelete);
+            root.SolvePart2(neededUnusedSpace, ref directoryToDelete);
             Console.WriteLine(directoryToDelete.size);
         }
     }
