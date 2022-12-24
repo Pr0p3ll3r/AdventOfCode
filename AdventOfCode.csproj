@@ -5,7 +5,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>AdventOfCode.Day21.Day21</StartupObject>
+    <StartupObject>AdventOfCode.Day23.Day23</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Day22\" />
+  </ItemGroup>
 
 </Project>
