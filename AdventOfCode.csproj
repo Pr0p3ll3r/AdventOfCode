@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>AdventOfCode.Day23.Day23</StartupObject>
+    <StartupObject>AdventOfCode.Day25.Day25</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
